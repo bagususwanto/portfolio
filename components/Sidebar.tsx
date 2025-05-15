@@ -29,6 +29,15 @@ export default function Sidebar() {
 
   const isDarkMode = mounted && theme === "dark";
 
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/assets/resume.pdf"; // Ganti dengan URL file resume Anda
+    link.download = "Bagus_Uswanto_Resume.pdf"; // Ganti dengan nama file yang diinginkan
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="flex flex-col items-center w-xs h-full py-4 rounded-xl shadow-xl backdrop-blur-3xl bg-white/10 dark:bg-gray-800/30 dark:shadow-black/40 border border-gray-200/20 dark:border-gray-700/30">
       <div className="flex justify-start w-full px-4">
@@ -68,10 +77,7 @@ export default function Sidebar() {
         <TypingAnimation duration={100} delay={500}>
           Full Stack Developer
         </TypingAnimation>
-        <Button
-          size={"sm"}
-          className="mt-4"
-          onClick={() => console.log("Download Resume")}>
+        <Button size={"sm"} className="mt-4" onClick={downloadResume}>
           Download Resume
         </Button>
 
