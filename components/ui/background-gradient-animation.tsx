@@ -105,7 +105,7 @@ export const BackgroundGradientAnimation = ({
   return (
     <div
       className={cn(
-        "h-screen w-screen relative overflow-hidden top-0 left-0 bg-gradient-to-r from-white to-primary dark:from-gray-900 dark:to-gray-800",
+        "h-screen w-screen relative overflow-hidden top-0 left-0 bg-gradient-to-br from-indigo-100 from-50% to-primary to-50% dark:from-gray-900 dark:to-gray-800",
         containerClassName
       )}>
       <svg className="hidden">
