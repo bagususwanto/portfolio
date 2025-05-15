@@ -31,12 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
-          <BackgroundGradientAnimation>
-            <main className="absolute z-50 inset-0 flex flex-row items-center justify-center gap-8 p-4 pointer-events-none">
-              <Sidebar />
-              <Content>{children}</Content>
-            </main>
-          </BackgroundGradientAnimation>
+          <main className="bg-gradient-to-br from-indigo-100 from-50% to-primary to-50% dark:from-gray-900 dark:to-gray-800 h-screen w-screen flex flex-row items-center justify-center gap-8 p-4 pointer-events-none">
+            <Sidebar />
+            <Content>{children}</Content>
+          </main>
         </ThemeProvider>
       </body>
     </html>
