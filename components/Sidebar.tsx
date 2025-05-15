@@ -15,10 +15,13 @@ import { MdEmail } from "react-icons/md";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { TypingAnimation } from "./magicui/typing-animation";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -53,7 +56,7 @@ export default function Sidebar() {
           animate={{ rotateY: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}>
-          <Avatar className="transition-transform duration-300 hover:scale-105">
+          <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
@@ -62,7 +65,9 @@ export default function Sidebar() {
           <p className="text-primary">Bagus</p>
           <p>Uswanto</p>
         </span>
-        <p className="text-sm font-bold">Full Stack Developer</p>
+        <TypingAnimation duration={100} delay={500}>
+          Full Stack Developer
+        </TypingAnimation>
         <Button
           size={"sm"}
           className="mt-4"
@@ -107,11 +112,11 @@ export default function Sidebar() {
           <p className="text-sm font-medium">bagus_uswanto@outlook.com</p>
         </div>
       </div>
-      <div className="w-full px-4 my-2">
+      <div className="flex flex-col items-center w-full px-4 my-2">
         <Link href="mailto:bagus_uswanto@outlook.com" target="_blank">
-          <Button variant={"secondary"} className="w-full">
-            <MdEmail className="w-4 h-4 mr-2" />
-            Email Me
+          <Button variant={"secondary"}>
+            <MdEmail className="w-4 h-4" />
+            Send Email
           </Button>
         </Link>
       </div>
@@ -119,18 +124,24 @@ export default function Sidebar() {
       <div className="w-full px-4 mt-4">
         <p className="text-sm font-semibold mb-2">Quick Links</p>
         <div className="flex flex-col gap-2">
-          <Link href="/about">
-            <Button variant="ghost" className="w-full">
+          <Link href="/">
+            <Button
+              variant={pathname === "/" ? "secondary" : "ghost"}
+              className="w-full">
               About
             </Button>
           </Link>
           <Link href="/projects">
-            <Button variant="ghost" className="w-full">
+            <Button
+              variant={pathname === "/projects" ? "secondary" : "ghost"}
+              className="w-full">
               Projects
             </Button>
           </Link>
           <Link href="/resume">
-            <Button variant="ghost" className="w-full">
+            <Button
+              variant={pathname === "/resume" ? "secondary" : "ghost"}
+              className="w-full">
               Resume
             </Button>
           </Link>
