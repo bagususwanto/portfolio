@@ -81,11 +81,11 @@ export default function Home() {
     <>
       <div className="flex flex-col items-center w-full px-4">
         <p className="text-sm mb-4">
-          Hi there! I’m a fullstack developer who loves working on both backend
+          Hi there! I'm a fullstack developer who loves working on both backend
           and frontend parts of web apps. I make sure the server runs smoothly
           with clean and efficient code, while also crafting beautiful and
           intuitive interfaces. Whether it's designing APIs or building
-          interactive UI, I’m passionate about creating great user experiences
+          interactive UI, I'm passionate about creating great user experiences
           from end to end.
         </p>
       </div>
