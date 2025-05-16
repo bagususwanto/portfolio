@@ -30,8 +30,8 @@ export default function Skills() {
   ];
 
   return (
-    <div className="w-full px-4 mt-2">
-      <div className="grid grid-cols-3 gap-2 max-h-32 pr-1">
+    <div className="mt-2 px-4 w-full">
+      <div className="gap-2 grid grid-cols-3 pr-1 max-h-32">
         {skills.map((skill, index) => (
           <motion.div
             key={skill.name}
@@ -43,13 +43,13 @@ export default function Skills() {
               ease: "easeOut",
             }}
             whileHover={{ scale: 1.05 }}
-            className="flex flex-col items-center justify-center p-2 rounded-lg bg-gray-100/20 dark:bg-gray-800/30 cursor-pointer pointer-events-auto">
+            className="flex flex-col justify-center items-center bg-gray-100/20 dark:bg-gray-800/30 p-2 rounded-lg cursor-pointer pointer-events-auto">
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}>
               <skill.icon className={`w-5 h-5 ${skill.color}`} />
             </motion.div>
-            <span className="text-xs mt-1 font-medium">{skill.name}</span>
+            <span className="mt-1 font-medium text-xs">{skill.name}</span>
           </motion.div>
         ))}
       </div>

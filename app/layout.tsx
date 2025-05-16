@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import Sidebar from "@/components/Sidebar";
 import Content from "@/components/Content";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { navItems } from "@/components/_nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
-          <main className="bg-gradient-to-br from-indigo-100 from-50% to-primary to-50% dark:from-gray-900 dark:to-gray-800 h-screen w-screen flex flex-row items-center justify-center gap-8 p-4 pointer-events-none">
-            <Sidebar />
-            <Content>{children}</Content>
+          <main className="bg-gradient-to-b md:bg-gradient-to-br from-50% from-indigo-100 dark:from-gray-900 to-50% to-primary dark:to-gray-800">
+            <div className="flex md:flex-row flex-col justify-center items-center gap-8 p-4 w-screen h-max md:h-screen">
+              <Sidebar />
+              <Content>{children}</Content>
+            </div>
+            <FloatingDock
+              desktopClassName="md:hidden"
+              mobileClassName="md:hidden"
+              items={navItems}
+            />
           </main>
         </ThemeProvider>
       </body>

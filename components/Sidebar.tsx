@@ -16,12 +16,12 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { TypingAnimation } from "./magicui/typing-animation";
-import { usePathname } from "next/navigation";
+import NavLinkButton from "./NavLinkButton";
+import { navItems } from "./_nav";
 
 export default function Sidebar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -39,8 +39,8 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex flex-col items-center w-xs h-full py-4 rounded-xl shadow-xl backdrop-blur-3xl bg-white/10 dark:bg-gray-800/30 dark:shadow-black/40 border border-gray-200/20 dark:border-gray-700/30">
-      <div className="flex justify-start w-full px-4">
+    <div className="flex flex-col items-center bg-white/10 dark:bg-gray-800/30 shadow-xl dark:shadow-black/40 backdrop-blur-3xl py-4 border border-gray-200/20 dark:border-gray-700/30 rounded-xl w-full md:w-xs h-full">
+      <div className="flex justify-start px-4 w-full">
         <Button
           size="sm"
           className="rounded-full"
@@ -59,7 +59,7 @@ export default function Sidebar() {
         </Button>
       </div>
 
-      <div className="flex flex-col items-center w-full p-4">
+      <div className="flex flex-col items-center p-4 w-full">
         <motion.div
           initial={{ rotateY: -180, opacity: 0 }}
           animate={{ rotateY: 0, opacity: 1 }}
@@ -81,7 +81,7 @@ export default function Sidebar() {
           Download Resume
         </Button>
 
-        <div className="flex flex-row w-full justify-evenly mt-4">
+        <div className="flex flex-row justify-evenly mt-4 w-full">
           <Link href="https://github.com/bagususwanto" target="_blank">
             <Button
               aria-label="Github"
@@ -108,17 +108,17 @@ export default function Sidebar() {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center w-full bg-gray-100/30 dark:bg-gray-700/30 p-4">
+      <div className="flex flex-col justify-center items-center bg-gray-100/30 dark:bg-gray-700/30 p-4 w-full">
         <div className="flex flex-row items-center">
-          <FaLocationDot className="w-4 h-4 mr-2" />
-          <p className="text-sm font-medium">Karawang, Indonesia</p>
+          <FaLocationDot className="mr-2 w-4 h-4" />
+          <p className="font-medium text-sm">Karawang, Indonesia</p>
         </div>
         <div className="flex flex-row items-center">
-          <MdEmail className="w-4 h-4 mr-2" />
-          <p className="text-sm font-medium">bagus_uswanto@outlook.com</p>
+          <MdEmail className="mr-2 w-4 h-4" />
+          <p className="font-medium text-sm">bagus_uswanto@outlook.com</p>
         </div>
       </div>
-      <div className="flex flex-col items-center w-full px-4 my-2">
+      <div className="flex flex-col items-center my-2 px-4 w-full">
         <Link href="mailto:bagus_uswanto@outlook.com" target="_blank">
           <Button variant={"secondary"}>
             <MdEmail className="w-4 h-4" />
@@ -127,30 +127,12 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      <div className="w-full px-4 mt-4">
-        <p className="text-sm font-semibold mb-2">Quick Links</p>
+      <div className="hidden md:block mt-4 px-4 w-full">
+        <p className="mb-2 font-semibold text-sm">Quick Links</p>
         <div className="flex flex-col gap-2">
-          <Link href="/">
-            <Button
-              variant={pathname === "/" ? "secondary" : "ghost"}
-              className="w-full">
-              About
-            </Button>
-          </Link>
-          <Link href="/projects">
-            <Button
-              variant={pathname === "/projects" ? "secondary" : "ghost"}
-              className="w-full">
-              Projects
-            </Button>
-          </Link>
-          <Link href="/resume">
-            <Button
-              variant={pathname === "/resume" ? "secondary" : "ghost"}
-              className="w-full">
-              Resume
-            </Button>
-          </Link>
+          {navItems.map((item, index) => (
+            <NavLinkButton key={index} href={item.href} label={item.title} />
+          ))}
         </div>
       </div>
     </div>

@@ -12,11 +12,11 @@ export default function CardService({
   description,
 }: CardServiceProps) {
   return (
-    <div className="w-full h-28 bg-white/10 backdrop-blur-xl rounded-lg p-4">
-      <div className="flex flex-row justify-center items-center w-full h-full gap-4">
+    <div className="bg-white/10 backdrop-blur-xl p-4 rounded-lg w-full h-28">
+      <div className="flex flex-row justify-center items-center gap-4 w-full h-full">
         <Icon className="w-12 h-12 text-primary" />
         <div className="flex flex-col">
-          <h2 className="text-md font-semibold">{title}</h2>
+          <h2 className="font-semibold text-md">{title}</h2>
           <p className="text-sm">{description}</p>
         </div>
       </div>

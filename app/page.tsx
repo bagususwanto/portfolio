@@ -6,9 +6,10 @@ import {
   AiFillCloud,
   AiFillDatabase,
   AiOutlineDeploymentUnit,
+  AiOutlineGateway,
   AiOutlineSecurityScan,
 } from "react-icons/ai";
-import { HiComputerDesktop } from "react-icons/hi2";
+import { HiComputerDesktop, HiDevicePhoneMobile } from "react-icons/hi2";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -24,6 +25,12 @@ export default function Home() {
       title: "Backend Development",
       description:
         "Designing and developing scalable backend systems using Node.js, Express, and PostgreSQL/MSSQL.",
+    },
+    {
+      Icon: HiDevicePhoneMobile,
+      title: "Mobile Development",
+      description:
+        "Creating cross-platform mobile apps using React Native for both Android and iOS.",
     },
     {
       Icon: AiFillApi,
@@ -49,6 +56,12 @@ export default function Home() {
       description:
         "Deploying applications to production environments, setting up CI/CD pipelines, and configuring Nginx on Windows/Linux servers.",
     },
+    {
+      Icon: AiOutlineGateway,
+      title: "System Integration",
+      description:
+        "Integrating multiple systems and services such as third-party APIs, payment gateways, and enterprise platforms.",
+    },
   ];
 
   // Variants container untuk stagger anak-anak
@@ -63,24 +76,24 @@ export default function Home() {
 
   // Variants untuk tiap card (anak)
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 200 },
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 200, // kekakuan pegas, semakin tinggi semakin kaku
-        damping: 20, // redaman pegas, semakin tinggi semakin lembut
+        stiffness: 300, // kekakuan pegas, semakin tinggi semakin kaku
+        damping: 15, // redaman pegas, semakin tinggi semakin lembut
       },
     },
-    exit: { opacity: 0, scale: 0.8, y: 200 },
+    exit: { opacity: 0, scale: 0.8, y: 50 },
   };
 
   return (
     <>
-      <div className="flex flex-col items-center w-full px-4">
-        <p className="text-sm mb-4">
+      <div className="flex flex-col items-center px-4 w-full">
+        <p className="mb-4 text-sm">
           Hi there! I'm a fullstack developer who loves working on both backend
           and frontend parts of web apps. I make sure the server runs smoothly
           with clean and efficient code, while also crafting beautiful and
@@ -89,14 +102,14 @@ export default function Home() {
           from end to end.
         </p>
       </div>
-      <div className="flex flex-col w-full h-full bg-gray-100/30 dark:bg-gray-700/30 p-4">
-        <h2 className="text-xl font-semibold">What i'm doing</h2>
+      <div className="flex flex-col bg-gray-100/30 dark:bg-gray-700/30 p-4 w-full h-full">
+        <h2 className="font-semibold text-xl">What i'm doing</h2>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 gap-4 mt-2">
+          className="gap-4 grid grid-cols-1 md:grid-cols-2 mt-2">
           {services.map((service, index) => (
             <motion.div
               key={index}
