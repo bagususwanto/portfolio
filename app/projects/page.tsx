@@ -46,6 +46,13 @@ export default function Projects() {
         />
       ) : (
         <div className="flex flex-col px-4 w-full h-full overflow-y-auto">
+          <div className="mb-6">
+            <p className="text-gray-600 dark:text-gray-300 text-base">
+              A collection of personal and freelance projects I've worked on
+              recently.
+            </p>
+          </div>
+
           <motion.div
             variants={containerVariants}
             initial="hidden"

@@ -19,7 +19,7 @@ export default function Resume() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
-          <h2 className="mb-4 font-semibold text-xl">Education</h2>
+          <h2 className="mb-4 font-semibold text-2xl">Education</h2>
           <div className="mb-4">
             <h3 className="font-medium text-lg">
               Bachelor of Computer Science
@@ -44,7 +44,7 @@ export default function Resume() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}>
-          <h2 className="mb-4 font-semibold text-xl">Experience</h2>
+          <h2 className="mb-4 font-semibold text-2xl">Experience</h2>
           <div className="mb-4">
             <h3 className="font-medium text-lg">Full Stack Developer</h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm">

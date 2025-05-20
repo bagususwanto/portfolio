@@ -70,11 +70,15 @@ export default function Sidebar() {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </motion.div>
-        <span className="flex space-x-1 pt-4 font-extrabold text-lg">
+        <span className="flex space-x-1 pt-4 font-bold text-2xl">
           <p className="text-primary">Bagus</p>
           <p>Uswanto</p>
         </span>
-        <TypingAnimation loop duration={200} delay={1000}>
+        <TypingAnimation
+          className="font-medium text-muted-foreground text-sm"
+          loop
+          duration={200}
+          delay={1000}>
           Full Stack Developer
         </TypingAnimation>
         <Button size={"sm"} className="mt-4" onClick={downloadResume}>
@@ -110,25 +114,29 @@ export default function Sidebar() {
       </div>
       <div className="flex flex-col justify-center items-center bg-gray-100/30 dark:bg-gray-700/30 p-4 w-full">
         <div className="flex flex-row items-center">
-          <FaLocationDot className="mr-2 w-4 h-4" />
-          <p className="font-medium text-sm">Karawang, Indonesia</p>
+          <FaLocationDot className="mr-2 w-4 h-4 text-muted-foreground text-xs" />
+          <p className="text-muted-foreground text-xs">Karawang, Indonesia</p>
         </div>
         <div className="flex flex-row items-center">
-          <MdEmail className="mr-2 w-4 h-4" />
-          <p className="font-medium text-sm">bagus_uswanto@outlook.com</p>
+          <MdEmail className="mr-2 w-4 h-4 text-muted-foreground text-xs" />
+          <p className="text-muted-foreground text-xs">
+            bagus_uswanto@outlook.com
+          </p>
         </div>
       </div>
       <div className="flex flex-col items-center my-2 px-4 w-full">
         <Link href="mailto:bagus_uswanto@outlook.com" target="_blank">
-          <Button variant={"secondary"}>
+          <Button variant={"secondary"} size={"sm"}>
             <MdEmail className="w-4 h-4" />
-            Send Email
+            Email Me
           </Button>
         </Link>
       </div>
 
       <div className="hidden md:block mt-4 px-4 w-full">
-        <p className="mb-2 font-semibold text-sm">Quick Links</p>
+        <p className="mb-2 font-semibold text-sm uppercase tracking-wide">
+          Quick Links
+        </p>
         <div className="flex flex-col gap-2">
           {navItems.map((item, index) => (
             <NavLinkButton key={index} href={item.href} label={item.title} />

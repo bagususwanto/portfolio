@@ -92,7 +92,7 @@ export default function Home() {
 
   return (
     <>
-      <p className="mb-4 px-4 text-sm leading-6">
+      <p className="mb-4 px-4 text-base leading-6">
         Hi there! I'm a fullstack developer who loves working on both backend
         and frontend parts of web apps. I make sure the server runs smoothly
         with clean and efficient code, while also crafting beautiful and
@@ -101,7 +101,7 @@ export default function Home() {
         from end to end.
       </p>
       <div className="flex flex-col bg-gray-100/30 dark:bg-gray-700/30 p-4 w-full h-full">
-        <h2 className="font-semibold text-xl">What i'm doing</h2>
+        <h2 className="font-semibold text-2xl">What i'm doing</h2>
         <motion.div
           variants={containerVariants}
           initial="hidden"
