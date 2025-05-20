@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center px-4 w-full">
-        <p className="mb-4 text-sm">
+        <p className="mb-4 text-sm leading-6">
           Hi there! I'm a fullstack developer who loves working on both backend
           and frontend parts of web apps. I make sure the server runs smoothly
           with clean and efficient code, while also crafting beautiful and
