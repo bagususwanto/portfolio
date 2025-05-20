@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { AiFillProject } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 interface ProjectDetailProps {
   project: {
@@ -19,8 +20,43 @@ interface ProjectDetailProps {
 export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   if (!project) return null;
 
+  const springVariant = {
+    initial: {
+      opacity: 0,
+      scale: 0.9,
+      y: 100,
+      transition: { type: "spring", stiffness: 100, damping: 10 },
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100, damping: 10 },
+    },
+  };
+
+  const techStackVariant = {
+    initial: { opacity: 0, scale: 0.9, y: 100 },
+    animate: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 12,
+        delay: i * 0.05,
+      },
+    }),
+  };
+
   return (
-    <div className="relative bg-white/30 dark:bg-gray-100/10 backdrop-blur-xl mt-4 p-4 rounded-lg w-full h-full">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="relative bg-white/30 dark:bg-gray-100/10 backdrop-blur-xl p-4 rounded-lg w-full h-full">
       <Button
         aria-label="Close"
         className="top-1 right-1 absolute rounded-full"
@@ -32,37 +68,73 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       {/* Konten */}
       <div className="flex flex-row justify-between gap-4 mt-8">
         <div className="flex flex-col justify-center items-center gap-4">
-          <img
+          <motion.img
             src={project.image}
             alt={project.title}
-            className="w-md object-fit"
+            className="rounded w-md object-fit"
+            variants={springVariant}
+            initial="initial"
+            animate="animate"
           />
-          <div className="flex flex-row justify-arround items-center gap-2">
-            <Link href={project.github} target="_blank">
-              <Button aria-label="Github" variant={"secondary"}>
-                <FaGithub className="w-4 h-4" />
-                <span className="ml-2">View on Github</span>
-              </Button>
-            </Link>
-            <Link href={project.project} target="_blank">
-              <Button aria-label="Project" variant={"secondary"}>
-                <AiFillProject className="w-4 h-4" />
-                <span className="ml-2">View on Project</span>
-              </Button>
-            </Link>
+
+          <div className="flex flex-row justify-around items-center gap-2">
+            <motion.div
+              variants={springVariant}
+              initial="initial"
+              animate="animate">
+              <Link href={project.github} target="_blank">
+                <Button aria-label="Github" variant={"secondary"}>
+                  <FaGithub className="w-4 h-4" />
+                  <span className="ml-2">View on Github</span>
+                </Button>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              variants={springVariant}
+              initial="initial"
+              animate="animate">
+              <Link href={project.project} target="_blank">
+                <Button aria-label="Project" variant={"secondary"}>
+                  <AiFillProject className="w-4 h-4" />
+                  <span className="ml-2">View on Project</span>
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="font-bold text-xl">{project.title}</h1>
-          <p className="text-sm">{project.description}</p>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <motion.h1
+            className="font-bold text-xl"
+            variants={springVariant}
+            initial="initial"
+            animate="animate">
+            {project.title}
+          </motion.h1>
+
+          <motion.p
+            className="text-sm"
+            variants={springVariant}
+            initial="initial"
+            animate="animate">
+            {project.description}
+          </motion.p>
+
           <div className="gap-2 grid grid-cols-4 mt-8">
             {project.techStack.map((Tech, i) => (
-              <Tech key={i} />
+              <motion.div
+                key={i}
+                variants={techStackVariant}
+                initial="initial"
+                animate="animate"
+                custom={i}>
+                <Tech />
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

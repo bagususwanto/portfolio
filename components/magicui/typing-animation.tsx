@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, MotionProps } from "motion/react";
+import { motion, MotionProps } from "framer-motion"; // pastikan import dari "framer-motion"
 import { useEffect, useRef, useState } from "react";
 
 interface TypingAnimationProps extends MotionProps {
@@ -11,6 +11,7 @@ interface TypingAnimationProps extends MotionProps {
   delay?: number;
   as?: React.ElementType;
   startOnView?: boolean;
+  loop?: boolean; // <-- tambah properti loop
 }
 
 export function TypingAnimation({
@@ -20,12 +21,10 @@ export function TypingAnimation({
   delay = 0,
   as: Component = "div",
   startOnView = false,
+  loop = false, // default: tidak looping
   ...props
 }: TypingAnimationProps) {
-  const MotionComponent = motion.create(Component, {
-    forwardMotionProps: true,
-  });
-
+  const MotionComponent = motion(Component);
   const [displayedText, setDisplayedText] = useState<string>("");
   const [started, setStarted] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
@@ -61,19 +60,32 @@ export function TypingAnimation({
     if (!started) return;
 
     let i = 0;
-    const typingEffect = setInterval(() => {
-      if (i < children.length) {
-        setDisplayedText(children.substring(0, i + 1));
-        i++;
-      } else {
-        clearInterval(typingEffect);
-      }
-    }, duration);
+    let typingEffect: NodeJS.Timeout;
+
+    const startTyping = () => {
+      typingEffect = setInterval(() => {
+        if (i < children.length) {
+          setDisplayedText(children.substring(0, i + 1));
+          i++;
+        } else {
+          clearInterval(typingEffect);
+          if (loop) {
+            setTimeout(() => {
+              i = 0;
+              setDisplayedText("");
+              startTyping();
+            }, 1000); // jeda sebelum ulangi
+          }
+        }
+      }, duration);
+    };
+
+    startTyping();
 
     return () => {
       clearInterval(typingEffect);
     };
-  }, [children, duration, started]);
+  }, [children, duration, started, loop]);
 
   return (
     <MotionComponent

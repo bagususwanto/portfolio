@@ -92,16 +92,14 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col items-center px-4 w-full">
-        <p className="mb-4 text-sm leading-6">
-          Hi there! I'm a fullstack developer who loves working on both backend
-          and frontend parts of web apps. I make sure the server runs smoothly
-          with clean and efficient code, while also crafting beautiful and
-          intuitive interfaces. Whether it's designing APIs or building
-          interactive UI, I'm passionate about creating great user experiences
-          from end to end.
-        </p>
-      </div>
+      <p className="mb-4 px-4 text-sm leading-6">
+        Hi there! I'm a fullstack developer who loves working on both backend
+        and frontend parts of web apps. I make sure the server runs smoothly
+        with clean and efficient code, while also crafting beautiful and
+        intuitive interfaces. Whether it's designing APIs or building
+        interactive UI, I'm passionate about creating great user experiences
+        from end to end.
+      </p>
       <div className="flex flex-col bg-gray-100/30 dark:bg-gray-700/30 p-4 w-full h-full">
         <h2 className="font-semibold text-xl">What i'm doing</h2>
         <motion.div

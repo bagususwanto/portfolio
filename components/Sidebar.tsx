@@ -74,7 +74,7 @@ export default function Sidebar() {
           <p className="text-primary">Bagus</p>
           <p>Uswanto</p>
         </span>
-        <TypingAnimation duration={100} delay={500}>
+        <TypingAnimation loop duration={200} delay={1000}>
           Full Stack Developer
         </TypingAnimation>
         <Button size={"sm"} className="mt-4" onClick={downloadResume}>

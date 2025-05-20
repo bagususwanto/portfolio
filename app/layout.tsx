@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
           <main className="bg-gradient-to-b md:bg-gradient-to-br from-50% from-indigo-100 dark:from-gray-900 to-50% to-primary dark:to-gray-800">
-            <div className="flex md:flex-row flex-col justify-center items-center gap-8 p-4 w-screen h-max md:h-screen">
+            <div className="flex md:flex-row flex-col justify-center items-center gap-8 p-4 w-screen h-max md:h-screen overflow-hidden">
               <Sidebar />
               <Content>{children}</Content>
             </div>
