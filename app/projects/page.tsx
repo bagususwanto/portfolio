@@ -23,7 +23,7 @@ export default function Projects() {
 
   // Variants untuk tiap card (anak)
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 300 },
+    hidden: { opacity: 0, scale: 0.8, y: 200 },
     visible: {
       opacity: 1,
       scale: 1,
