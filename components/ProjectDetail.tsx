@@ -66,7 +66,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       </Button>
 
       {/* Konten */}
-      <div className="flex flex-row justify-between gap-4 mt-8">
+      <div className="flex md:flex-row flex-col justify-between gap-4 mt-8">
         <div className="flex flex-col justify-center items-center gap-4">
           <motion.img
             src={project.image}
