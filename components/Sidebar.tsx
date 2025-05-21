@@ -75,7 +75,7 @@ export default function Sidebar() {
           <p>Uswanto</p>
         </span>
         <TypingAnimation
-          className="font-medium text-muted-foreground text-sm"
+          className="font-medium text-secondary-foreground text-sm"
           loop
           duration={200}
           delay={1000}>

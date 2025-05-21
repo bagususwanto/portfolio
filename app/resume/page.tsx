@@ -24,13 +24,11 @@ export default function Resume() {
             <h3 className="font-medium text-lg">
               Bachelor of Computer Science
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
+            <p className="text-secondary-foreground text-sm">
               University of Terbuka
             </p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
-              2023 - Present
-            </p>
-            <p className="mt-2 text-sm">
+            <p className="text-muted-foreground text-sm">2023 - Present</p>
+            <p className="mt-2 text-sm leading-relaxed">
               Focused on Software Engineering, Data Structures, and Web
               Development.
             </p>
@@ -47,13 +45,11 @@ export default function Resume() {
           <h2 className="mb-4 font-semibold text-2xl">Experience</h2>
           <div className="mb-4">
             <h3 className="font-medium text-lg">Full Stack Developer</h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
+            <p className="text-secondary-foreground text-sm">
               Tech Innovate Inc.
             </p>
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
-              2023 - Present
-            </p>
-            <ul className="mt-2 ml-5 text-sm list-disc">
+            <p className="text-muted-foreground text-sm">2023 - Present</p>
+            <ul className="mt-2 ml-5 text-sm leading-relaxed list-disc">
               <li>Developed and maintained scalable React applications</li>
               <li>Collaborated with UI/UX teams for better user experience</li>
               <li>Improved performance and reduced load times by 30%</li>

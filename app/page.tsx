@@ -92,7 +92,7 @@ export default function Home() {
 
   return (
     <>
-      <p className="mb-4 px-4 text-base leading-6">
+      <p className="mb-4 px-4 leading-relaxed">
         Hi there! I'm a fullstack developer who loves working on both backend
         and frontend parts of web apps. I make sure the server runs smoothly
         with clean and efficient code, while also crafting beautiful and

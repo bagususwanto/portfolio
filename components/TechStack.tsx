@@ -1,11 +1,15 @@
 import { DiMsqlServer } from "react-icons/di";
 import {
   SiBootstrap,
+  SiCss3,
   SiExpress,
+  SiHtml5,
   SiJavascript,
   SiMysql,
+  SiNextdotjs,
   SiPhp,
   SiReact,
+  SiTailwindcss,
 } from "react-icons/si";
 
 const TechItem = ({
@@ -49,4 +53,20 @@ export const TechPhp = () => (
 
 export const TechMysql = () => (
   <TechItem Icon={SiMysql} color="text-blue-600" label="MySQL" />
+);
+
+export const TechHtml = () => (
+  <TechItem Icon={SiHtml5} color="text-orange-600" label="HTML" />
+);
+
+export const TechCss = () => (
+  <TechItem Icon={SiCss3} color="text-blue-600" label="CSS" />
+);
+
+export const TechNextJs = () => (
+  <TechItem Icon={SiNextdotjs} color="text-gray-100" label="Next.js" />
+);
+
+export const TechTailwind = () => (
+  <TechItem Icon={SiTailwindcss} color="text-cyan-500" label="Tailwind" />
 );

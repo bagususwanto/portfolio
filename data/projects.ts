@@ -1,11 +1,15 @@
 import {
   TechBootstrap,
+  TechCss,
   TechExpress,
+  TechHtml,
   TechJavascript,
   TechMsqlServer,
   TechMysql,
+  TechNextJs,
   TechPhp,
   TechReact,
+  TechTailwind,
 } from "@/components/TechStack";
 
 export const projects = [
@@ -63,5 +67,41 @@ export const projects = [
     project: "#",
     image: ["/assets/projects/escrap.png"],
     techStack: [TechPhp, TechJavascript, TechBootstrap, TechMysql],
+  },
+  {
+    id: 5,
+    title: "Automotive Company Landing Page",
+    description:
+      "A landing page for an automotive company that showcases their products and services.",
+    github: "https://github.com/bagususwanto",
+    project: "#",
+    image: ["/assets/projects/carLanding.png"],
+    techStack: [TechHtml, TechCss, TechJavascript],
+  },
+  {
+    id: 6,
+    title: "Wedding Invitation Website",
+    description:
+      "A wedding invitation website that allows users to create and send digital invitations.",
+    github: "https://github.com/bagususwanto",
+    project: "#",
+    image: [
+      "/assets/projects/weddingInvitation.png",
+      "/assets/projects/weddingInvitation2.png",
+    ],
+    techStack: [TechHtml, TechCss, TechJavascript, TechBootstrap],
+  },
+  {
+    id: 7,
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website that showcases my projects and skills.",
+    github: "https://github.com/bagususwanto",
+    project: "#",
+    image: [
+      "/assets/projects/portfolio.png",
+      "/assets/projects/portfolio2.png",
+    ],
+    techStack: [TechJavascript, TechNextJs, TechTailwind],
   },
 ];
