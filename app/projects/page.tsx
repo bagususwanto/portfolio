@@ -45,7 +45,7 @@ export default function Projects() {
           onBack={() => setSelectedProject(null)}
         />
       ) : (
-        <div className="flex flex-col px-4 w-full h-full overflow-y-auto">
+        <div className="flex flex-col px-4 w-full h-full md:overflow-y-auto">
           <div className="mb-6">
             <p className="text-muted-foreground">
               A collection of personal and freelance projects I've worked on
