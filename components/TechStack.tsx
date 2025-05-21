@@ -1,5 +1,12 @@
 import { DiMsqlServer } from "react-icons/di";
-import { SiBootstrap, SiExpress, SiReact } from "react-icons/si";
+import {
+  SiBootstrap,
+  SiExpress,
+  SiJavascript,
+  SiMysql,
+  SiPhp,
+  SiReact,
+} from "react-icons/si";
 
 const TechItem = ({
   Icon,
@@ -10,10 +17,14 @@ const TechItem = ({
   color: string;
   label: string;
 }) => (
-  <div className="flex flex-row items-center gap-2 mt-4">
+  <div className="flex flex-row items-center gap-2">
     <Icon className={`w-5 h-5 ${color}`} />
     <span className="font-medium text-xs">{label}</span>
   </div>
+);
+
+export const TechJavascript = () => (
+  <TechItem Icon={SiJavascript} color="text-yellow-400" label="JavaScript" />
 );
 
 export const TechReact = () => (
@@ -30,4 +41,12 @@ export const TechBootstrap = () => (
 
 export const TechMsqlServer = () => (
   <TechItem Icon={DiMsqlServer} color="text-red-600" label="Microsoft SQL" />
+);
+
+export const TechPhp = () => (
+  <TechItem Icon={SiPhp} color="text-blue-600" label="PHP" />
+);
+
+export const TechMysql = () => (
+  <TechItem Icon={SiMysql} color="text-blue-600" label="MySQL" />
 );

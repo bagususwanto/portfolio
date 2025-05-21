@@ -14,6 +14,7 @@ import {
   SiPhp,
   SiHtml5,
   SiCss3,
+  SiMysql,
 } from "react-icons/si";
 import { motion } from "framer-motion";
 import { DiMsqlServer } from "react-icons/di";
@@ -41,6 +42,7 @@ export default function Skills() {
     { icon: SiNodedotjs, name: "Node.js", color: "text-green-500" },
     { icon: SiPostgresql, name: "PostgreSQL", color: "text-blue-700" },
     { icon: DiMsqlServer, name: "Microsoft SQL", color: "text-red-600" },
+    { icon: SiMysql, name: "MySQL", color: "text-blue-600" },
     { icon: SiGit, name: "Git", color: "text-orange-600" },
     { icon: SiHtml5, name: "HTML", color: "text-orange-600" },
     { icon: SiCss3, name: "CSS", color: "text-blue-600" },

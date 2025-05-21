@@ -67,7 +67,7 @@ export default function Projects() {
                 <CardProject
                   key={index}
                   title={project.title}
-                  img={project.image}
+                  img={project.image[0]}
                   onClick={() => setSelectedProject(project)}
                 />
               </motion.div>

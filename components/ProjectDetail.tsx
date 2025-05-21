@@ -11,7 +11,7 @@ interface ProjectDetailProps {
     description: string;
     github: string;
     project: string;
-    image: string;
+    image: string[];
     techStack: React.ComponentType[];
   };
   onBack: () => void;
@@ -68,14 +68,32 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       {/* Konten */}
       <div className="flex md:flex-row flex-col justify-between gap-4 mt-8">
         <div className="flex flex-col justify-center items-center gap-4">
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="rounded w-md object-fit"
-            variants={springVariant}
-            initial="initial"
-            animate="animate"
-          />
+          {project.image.length > 1 ? (
+            <motion.div
+              variants={springVariant}
+              initial="initial"
+              animate="animate">
+              {project.image.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={project.title}
+                  className="mb-2 rounded w-md object-fit"
+                />
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              variants={springVariant}
+              initial="initial"
+              animate="animate">
+              <img
+                src={project.image[0]}
+                alt={project.title}
+                className="rounded w-md object-fit"
+              />
+            </motion.div>
+          )}
 
           <div className="flex flex-row justify-around items-center gap-2">
             <motion.div
@@ -121,7 +139,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
             {project.description}
           </motion.p>
 
-          <div className="gap-2 grid grid-cols-4 mt-8">
+          <div className="gap-x-2 gap-y-4 grid grid-cols-4 mt-8">
             {project.techStack.map((Tech, i) => (
               <motion.div
                 key={i}

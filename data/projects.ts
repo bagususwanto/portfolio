@@ -1,7 +1,10 @@
 import {
   TechBootstrap,
   TechExpress,
+  TechJavascript,
   TechMsqlServer,
+  TechMysql,
+  TechPhp,
   TechReact,
 } from "@/components/TechStack";
 
@@ -13,37 +16,52 @@ export const projects = [
       "A web-based inventory management system that allows users to manage their inventory, track stock levels, and generate reports.",
     github: "https://github.com/bagususwanto",
     project: "#",
-    image: "/assets/projects/inventory.png",
-    techStack: [TechReact, TechExpress, TechBootstrap, TechMsqlServer],
+    image: [
+      "/assets/projects/inventory.png",
+      "/assets/projects/inventory2.png",
+    ],
+    techStack: [
+      TechJavascript,
+      TechReact,
+      TechExpress,
+      TechBootstrap,
+      TechMsqlServer,
+    ],
   },
   {
     id: 2,
-    title: "E-commerce Website",
+    title: "Vendor Arrival Monitoring",
     description:
-      "An e-commerce website that allows users to browse products, add them to their cart, and checkout securely.",
+      "A web application that allows users to monitor the arrival of vendors and manage their schedules.",
     github: "https://github.com/bagususwanto",
     project: "#",
-    image: "/assets/projects/inventory.png",
-    techStack: [TechReact, TechExpress, TechBootstrap, TechMsqlServer],
+    image: ["/assets/projects/vendorMonitoring.png"],
+    techStack: [
+      TechJavascript,
+      TechReact,
+      TechExpress,
+      TechBootstrap,
+      TechMsqlServer,
+    ],
   },
   {
     id: 3,
-    title: "Blog Platform",
+    title: "E-commerce Website",
     description:
-      "A blog platform that allows users to create, edit, and delete blog posts, as well as comment on other users' posts.",
+      "An e-commerce website that allows users to browse products, add them to their cart, and checkout.",
     github: "https://github.com/bagususwanto",
     project: "#",
-    image: "/assets/projects/inventory.png",
-    techStack: [TechReact, TechExpress, TechBootstrap, TechMsqlServer],
+    image: ["/assets/projects/ecommerce.png"],
+    techStack: [TechJavascript, TechReact, TechBootstrap, TechMsqlServer],
   },
   {
     id: 4,
-    title: "Portfolio Website",
+    title: "Material Scrap Management System",
     description:
-      "A personal portfolio website that showcases my projects, skills, and experience.",
+      "A web application that allows users to manage and track their scrap materials.",
     github: "https://github.com/bagususwanto",
     project: "#",
-    image: "/assets/projects/inventory.png",
-    techStack: [TechReact, TechExpress, TechBootstrap, TechMsqlServer],
+    image: ["/assets/projects/escrap.png"],
+    techStack: [TechPhp, TechJavascript, TechBootstrap, TechMysql],
   },
 ];
