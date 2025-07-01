@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { AiFillProject } from "react-icons/ai";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface ProjectDetailProps {
   project: {
@@ -20,7 +20,7 @@ interface ProjectDetailProps {
 export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   if (!project) return null;
 
-  const springVariant = {
+  const springVariant: Variants = {
     initial: {
       opacity: 0,
       scale: 0.9,
@@ -33,9 +33,9 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       y: 0,
       transition: { type: "spring", stiffness: 100, damping: 10 },
     },
-  } as const;
+  };
 
-  const techStackVariant = {
+  const techStackVariant: Variants = {
     initial: { opacity: 0, scale: 0.9, y: 100 },
     animate: (i: number) => ({
       opacity: 1,
@@ -48,7 +48,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         delay: i * 0.05,
       },
     }),
-  } as const;
+  };
 
   return (
     <motion.div

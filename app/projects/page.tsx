@@ -4,7 +4,7 @@ import { useState } from "react";
 import CardProject from "@/components/CardProject";
 import { ProjectDetail } from "@/components/ProjectDetail";
 import { projects } from "@/data/projects";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<
@@ -22,7 +22,7 @@ export default function Projects() {
   };
 
   // Variants untuk tiap card (anak)
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8, y: 200 },
     visible: {
       opacity: 1,
@@ -35,7 +35,7 @@ export default function Projects() {
       },
     },
     exit: { opacity: 0, scale: 0.8, y: 50 },
-  } as const;
+  };
 
   return (
     <>

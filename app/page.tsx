@@ -10,7 +10,7 @@ import {
   AiOutlineSecurityScan,
 } from "react-icons/ai";
 import { HiComputerDesktop, HiDevicePhoneMobile } from "react-icons/hi2";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Home() {
   const services = [
@@ -75,7 +75,7 @@ export default function Home() {
   };
 
   // Variants untuk tiap card (anak)
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8, y: 50 },
     visible: {
       opacity: 1,
@@ -88,7 +88,7 @@ export default function Home() {
       },
     },
     exit: { opacity: 0, scale: 0.8, y: 50 },
-  } as const;
+  };
 
   return (
     <>
