@@ -33,7 +33,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       y: 0,
       transition: { type: "spring", stiffness: 100, damping: 10 },
     },
-  };
+  } as const;
 
   const techStackVariant = {
     initial: { opacity: 0, scale: 0.9, y: 100 },
@@ -48,7 +48,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
         delay: i * 0.05,
       },
     }),
-  };
+  } as const;
 
   return (
     <motion.div

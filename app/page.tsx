@@ -88,7 +88,7 @@ export default function Home() {
       },
     },
     exit: { opacity: 0, scale: 0.8, y: 50 },
-  };
+  } as const;
 
   return (
     <>
