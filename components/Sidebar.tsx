@@ -18,16 +18,35 @@ import { useEffect, useState } from "react";
 import { TypingAnimation } from "./magicui/typing-animation";
 import NavLinkButton from "./NavLinkButton";
 import { navItems } from "./_nav";
+import { RiColorFilterFill } from "react-icons/ri";
 
 export default function Sidebar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [themeClass, setThemeClass] = useState<
+    "theme-default" | "theme-purple"
+  >(() => {
+    if (typeof window !== "undefined") {
+      return (
+        (localStorage.getItem("theme-class") as
+          | "theme-default"
+          | "theme-purple") || "theme-default"
+      );
+    }
+    return "theme-default";
+  });
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const isDarkMode = mounted && theme === "dark";
+  useEffect(() => {
+    document.documentElement.classList.remove("theme-default", "theme-purple");
+    document.documentElement.classList.add(themeClass);
+    localStorage.setItem("theme-class", themeClass);
+  }, [themeClass]);
+
+  const isDarkMode = theme === "dark";
 
   const downloadResume = () => {
     const link = document.createElement("a");
@@ -40,7 +59,7 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col items-center bg-white/10 dark:bg-gray-800/30 shadow-xl dark:shadow-black/40 backdrop-blur-3xl py-4 border border-gray-200/20 dark:border-gray-700/30 rounded-xl w-full md:w-xs h-full">
-      <div className="flex justify-start px-4 w-full">
+      <div className="flex justify-between px-4 w-full">
         <Button
           size="sm"
           className="rounded-full"
@@ -56,6 +75,18 @@ export default function Sidebar() {
           ) : (
             <span className="w-4 h-4" />
           )}
+        </Button>
+        <Button
+          size="sm"
+          className="rounded-full"
+          variant="ghost"
+          aria-label="Toggle color mode"
+          onClick={() => {
+            setThemeClass((prev) =>
+              prev === "theme-default" ? "theme-purple" : "theme-default"
+            );
+          }}>
+          <RiColorFilterFill className="w-4 h-4 text-primary" />
         </Button>
       </div>
 
@@ -81,7 +112,11 @@ export default function Sidebar() {
           delay={1000}>
           Full Stack Developer
         </TypingAnimation>
-        <Button size={"sm"} className="mt-4" onClick={downloadResume}>
+        <Button
+          size={"sm"}
+          variant={"default"}
+          className="mt-4"
+          onClick={downloadResume}>
           Download Resume
         </Button>
 
