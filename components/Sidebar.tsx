@@ -83,7 +83,7 @@ export default function Sidebar() {
           aria-label="Toggle color mode"
           onClick={() => {
             setThemeClass((prev) =>
-              prev === "theme-default" ? "theme-purple" : "theme-default"
+              prev === "theme-default" ? "theme-purple" : "theme-default",
             );
           }}>
           <RiColorFilterFill className="w-4 h-4 text-primary" />
@@ -97,8 +97,8 @@ export default function Sidebar() {
           transition={{ duration: 1, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}>
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src="/assets/profile.jpg" alt="Bagus Uswanto" />
+            <AvatarFallback>BU</AvatarFallback>
           </Avatar>
         </motion.div>
         <span className="flex space-x-1 pt-4 font-bold text-2xl">
