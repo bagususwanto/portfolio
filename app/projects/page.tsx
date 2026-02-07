@@ -1,16 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import CardProject from "@/components/CardProject";
-import { ProjectDetail } from "@/components/ProjectDetail";
 import { projects } from "@/data/projects";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
-
   // Variants container untuk stagger anak-anak
   const containerVariants = {
     hidden: {},
@@ -38,43 +33,35 @@ export default function Projects() {
   };
 
   return (
-    <>
-      {selectedProject ? (
-        <ProjectDetail
-          project={selectedProject}
-          onBack={() => setSelectedProject(null)}
-        />
-      ) : (
-        <div className="flex flex-col px-4 w-full h-full md:overflow-y-auto">
-          <div className="mb-6">
-            <p className="text-muted-foreground">
-              A collection of personal and freelance projects I've worked on
-              recently.
-            </p>
-          </div>
+    <div className="flex flex-col px-4 w-full h-full md:overflow-y-auto">
+      <div className="mb-6">
+        <p className="text-muted-foreground">
+          A collection of personal and freelance projects I've worked on
+          recently.
+        </p>
+      </div>
 
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="gap-4 grid grid-cols-1 md:grid-cols-3">
+        {projects.map((project, index) => (
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="gap-4 grid grid-cols-1 md:grid-cols-3">
-            {projects.map((project, index) => (
-              <motion.div
+            key={index}
+            variants={cardVariants}
+            className="bg-white/10 backdrop-blur-xl rounded-lg">
+            <Link href={`/projects/${project.id}`}>
+              <CardProject
                 key={index}
-                variants={cardVariants}
-                className="bg-white/10 backdrop-blur-xl rounded-lg">
-                <CardProject
-                  key={index}
-                  title={project.title}
-                  img={project.image[0]}
-                  onClick={() => setSelectedProject(project)}
-                />
-              </motion.div>
-            ))}
+                title={project.title}
+                img={project.image[0]}
+              />
+            </Link>
           </motion.div>
-        </div>
-      )}
-    </>
+        ))}
+      </motion.div>
+    </div>
   );
 }

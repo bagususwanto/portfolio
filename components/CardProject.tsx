@@ -5,7 +5,7 @@ export default function CardProject({
 }: {
   title: string;
   img: string;
-  onClick: () => void;
+  onClick?: () => void;
 }) {
   return (
     <div

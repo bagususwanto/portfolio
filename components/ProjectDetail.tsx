@@ -17,7 +17,13 @@ interface ProjectDetailProps {
   onBack: () => void;
 }
 
-export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
+export function ProjectDetail({
+  project,
+  onBack,
+}: {
+  project: any;
+  onBack: () => void;
+}) {
   if (!project) return null;
 
   const springVariant: Variants = {
@@ -57,14 +63,10 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       exit={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="relative bg-white/30 dark:bg-gray-100/10 backdrop-blur-xl p-4 rounded-lg w-full h-full">
-      <Button
-        aria-label="Close"
-        className="top-1 right-1 absolute rounded-full"
-        onClick={() => onBack()}
-        variant={"ghost"}>
-        <IoMdCloseCircle className="w-4 h-4" />
-      </Button>
-
+      <IoMdCloseCircle
+        className="top-4 right-4 z-50 absolute w-8 h-8 text-black/50 hover:text-black dark:text-white/50 cursor-pointer dark:hover:text-white duration-300"
+        onClick={onBack}
+      />
       {/* Konten */}
       <div className="flex md:flex-row flex-col justify-between gap-4 mt-8">
         <div className="flex flex-col justify-center items-center gap-4">
@@ -73,7 +75,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
               variants={springVariant}
               initial="initial"
               animate="animate">
-              {project.image.map((img, i) => (
+              {project.image.map((img: string, i: number) => (
                 <img
                   key={i}
                   src={img}
@@ -140,7 +142,7 @@ export function ProjectDetail({ project, onBack }: ProjectDetailProps) {
           </motion.p>
 
           <div className="gap-x-2 gap-y-4 grid grid-cols-4 mt-8">
-            {project.techStack.map((Tech, i) => (
+            {project.techStack.map((Tech: React.ComponentType, i: number) => (
               <motion.div
                 key={i}
                 variants={techStackVariant}
