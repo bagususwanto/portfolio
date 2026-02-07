@@ -42,7 +42,7 @@ const FloatingDockMobile = ({
     <div
       className={cn(
         "fixed bottom-4 right-4 -translate-x-1/2 block md:hidden",
-        className
+        className,
       )}>
       <AnimatePresence>
         {open && (
@@ -78,8 +78,8 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="flex justify-center items-center bg-gray-50 dark:bg-neutral-800 rounded-full w-10 h-10">
-        <IconLayoutNavbarCollapse className="w-5 h-5 text-neutral-500 dark:text-neutral-400" />
+        className="flex justify-center items-center bg-secondary rounded-full w-10 h-10">
+        <IconLayoutNavbarCollapse className="w-5 h-5 text-secondary-foreground" />
       </button>
     </div>
   );
@@ -99,7 +99,7 @@ const FloatingDockDesktop = ({
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
         "mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 md:flex dark:bg-neutral-900",
-        className
+        className,
       )}>
       {items.map((item) => (
         <IconContainer mouseX={mouseX} key={item.title} {...item} />
@@ -134,7 +134,7 @@ function IconContainer({
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20]
+    [20, 40, 20],
   );
 
   let width = useSpring(widthTransform, {
